@@ -1,0 +1,148 @@
+/* 
+#EDF1D6 
+#9DC08B
+#609966
+#40513B 
+*/
+html{
+padding: 0%;
+margin: 0%;
+}
+#title{
+    background-color: #609966;
+    color: white;
+}
+body{
+    font-family: 'Ubuntu'
+}
+.discription p {
+    color: #fff;
+    padding: 1% 9%;
+}
+
+
+.title-dis{
+    padding: 10% 3% 3% 2%;
+}
+
+.btn{
+    width: 25%;
+    margin: 2.5rem
+}
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+.container-fluid{       
+    padding: 0% 15%  14%  15% ;
+    background-color: #0000;
+}
+.img-sell{
+    transform: rotate(25deg); 
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+}
+.navbar{
+padding: 3.5rem;
+}
+.navbar-brand{
+font-family: 'Ubuntu';
+font-weight: bold;
+font-size: 2.5rem;
+}
+.navbar-item{
+    padding: 20px;
+    font-size: xx-large;
+}
+
+#features{
+    padding: 5% 15%;
+    background-color: #EDF1D6;
+    position: relative;
+    z-index: 1;
+}
+
+#features h3 { 
+    color: #609966;
+    position: relative;
+    margin-top: 5%;
+}
+.feature-box{
+    text-align: center;
+    padding: 5%;
+}
+p{
+    color: #8f8f8f;
+}
+h3{
+font-family: 'Montserrat';
+}
+.icon{
+    color: #9DC08B;
+    margin: 1rem;
+    vertical-align: middle;
+    padding: 0% 10%;
+    line-height: 50px;
+    position: relative;
+    text-align:center;
+}
+.icon:hover{
+    color: #609966;
+}
+
+/* item section */
+#item{
+    background-color: #609966;
+    padding: 5% 15%;
+}
+.item-header{
+    text-align: center;
+    margin: 0% 0% 5% 0%;
+    color: #EDF1D6;
+}
+.item-container{
+    text-align: center;
+}
+.card{
+    background-color: #EDF1D6;
+    width: 18rem;
+    border-radius: 5%;
+    margin-top: 5%;
+}
+.card:hover{
+    box-shadow: 5px 5px #40513B;
+}
+.btn{
+    width: 150px;
+    text-align: center;
+}
+
+/* footer section */
+
+footer{
+    background-color: #EDF1D6;
+    text-align: center;
+    padding: 1%;
+}
+
+
+
+
+
+
+@media screen and (max-width:1028px){
+    #title{
+        background-color: #ff4c68;
+        color: white;
+        text-align:center;
+    }
+    .img-iphone{
+        transform: rotate(0); 
+        max-width: 100%;
+        height: auto;
+        position: static;
+    }
+}
