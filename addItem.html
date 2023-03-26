@@ -36,9 +36,6 @@
                 <li class="navbar-item">
                     <a class="nav-link" href="">Register</a>
                 </li>
-                <li class="navbar-item">
-                    <a class="nav-link" href="#item">Buy Now</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -46,36 +43,62 @@
     </section>
 
     
-    <form>
+    <form class="container-fluid">
         <div class="form-group">
             <label for="itemCategory">Item Category</label>
             <select>
-                <option value="1">Books</option>
-                <option value="2">Electronics</option>
-                <option value="3">Furniture</option>
-                <option value="4">Clothing</option>
-                <option value="5">Other</option>
+                <optgroup label="Electronics">
+                    <option value="laptop">Laptop</option>
+                    <option value="phone">Phone</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="headphones">Headphones</option>
+                    <option value="speakers">Speakers</option>
+                    <option value="tv">TV</option>
+                    <option value="camera">Camera</option>
+                    <option value="other">Other</option>
+                </optgroup>
+                <optgroup label="Furniture">
+                    <option value="desk">Desk</option>
+                    <option value="chair">Chair</option>
+                    <option value="bed">Bed</option>
+                    <option value="couch">Couch</option>
+                    <option value="other">Other</option>
+                </optgroup>
+                <optgroup label="Clothing">
+                    <option value="shirt">Shirt</option>
+                    <option value="pants">Pants</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="other">Other</option>
+                </optgroup>
+                <optgroup label="Books">
+                    <option value="textbook">Textbook</option>
+                    <option value="novel">Novel</option>
+                    <option value="other">Other</option>
+                </optgroup>
+                <optgroup label="Other">
+                    <option value="other">Other</option>
+                </optgroup>
             </select>
         </div>
         <div class="form-group">
             <label for="itemPrice">Item Price</label>
-            <input type="text" class="form-control" id="itemPrice" placeholder="Enter Item Price">
+            <input type="text" inputmode="numeric" pattern="\d*" placeholder="Enter the item price"/>
         </div>
         <div class="form-group">
             <label for="itemBuilding">Building</label>
-            <input type="text" class="form-control" id="itemBuilding" placeholder="Enter Building Number">
+            <input type="number" inputmode="numeric" pattern="\d*"  placeholder="Enter the building number"/> <!-- min="800" max="870" -->
         </div>
         <div class="form-group">
             <label for="itemDescription">Item Description</label>
-            <input type="text" class="form-control" id="itemDescription" placeholder="Enter Item Description">
+            <textarea class="form-control" id="itemDescription" rows="3"></textarea>
         </div>
         <aside>
         <div class="form-group">
             <label for="itemPhoto">Item Photo</label>
-            <input type="text" class="form-control" id="itemPhoto" placeholder="Enter Item Photo">
+            <input type="file" id="itemPhoto" name="itemPhoto" accept="image/png, image/jpeg">
         </div>
         </aside>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="upload" class="btn btn-primary">Upload</button>
     </form>
 
 </body>
