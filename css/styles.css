@@ -11,6 +11,11 @@ margin: 0%;
 
 .nav-page{
     background-color: #609966;
+    height: 7rem;
+}
+.brand{
+    width: 5rem;
+  padding: 1rem 0;
 }
 #title{
     background-color: #609966;
@@ -48,6 +53,9 @@ h1{
     max-width: 100%;
     height: auto;
     position: absolute;
+}
+.brand{
+
 }
 .navbar{
 padding: 3.5rem;
