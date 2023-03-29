@@ -31,7 +31,7 @@
     <form class="container-fluid">
         <div class="form-group">
             <label for="itemCategory">Item Category</label>
-            <select>
+            <select id="itemCatgory">
                 <optgroup label="Electronics">
                     <option value="laptop">Laptop</option>
                     <option value="phone">Phone</option>
@@ -66,22 +66,26 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="itemName">Item Name</label>
+            <input required id="itemName" type="text" inputmode="numeric" pattern="\d*" placeholder="Enter the item name"/>
+        </div>
+        <div class="form-group">
             <label for="itemPrice">Item Price</label>
-            <input type="text" inputmode="numeric" pattern="\d*" placeholder="Enter the item price"/>
+            <input required id="itemPrice" type="text" inputmode="numeric" pattern="\d*" placeholder="Enter the item price"/>
         </div>
         <div class="form-group">
             <label for="itemBuilding">Building</label>
-            <input type="number" inputmode="numeric" pattern="\d*"  placeholder="Enter the building number"/> <!-- min="800" max="870" -->
+            <input required id="itemBuilding" type="number" inputmode="numeric" pattern="\d*"  placeholder="Enter the building number"/> <!-- min="800" max="870" -->
         </div>
         <div class="form-group">
             <label for="itemDescription">Item Description</label>
-            <textarea class="form-control" id="itemDescription" rows="3"></textarea>
+            <textarea id="itemDesc" class="form-control" id="itemDescription" rows="3"></textarea>
         </div>
         <label for="itemPhoto">Item Photo</label>
         <div class="form-group" id="photo">
-            <input type="file" id="itemPhoto" name="itemPhoto" accept="image/png, image/jpeg">
+            <input required id="itemFileImg" type="file" id="itemPhoto" name="itemPhoto" accept="image/png, image/jpeg">
         </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
+        <button id="uploadBtn" type="submit" class="btn btn-primary">Upload</button>
     </form>
     </section>
 
@@ -92,5 +96,5 @@
   </footer>
 
 </body>
-
+<script src="scripts/items.js"></script>
 </html>

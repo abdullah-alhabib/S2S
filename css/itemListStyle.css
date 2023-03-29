@@ -37,6 +37,7 @@ body{margin: 0;}
     height: 100%;
     width: 100%;
     padding: 1rem;
+    overflow-y: scroll;
 }
 
 .item{
@@ -81,6 +82,16 @@ body{margin: 0;}
     padding: 10px;
     opacity: 0.6;
     
+}
+
+footer{
+    background-color: #9DC08B;
+    height: 2rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
 }
 
 @media screen and (min-width:960px) {
