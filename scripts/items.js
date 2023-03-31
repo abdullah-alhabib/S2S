@@ -5,27 +5,31 @@ arrItems = [
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'Sofa',
         catgory: 'Catgroy',
-        price: 300
+        price: 300,
+        description:"this is my "
     },
     {
         id:1,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'Sofa',
         catgory: 'Catgroy',
-        price: 300
+        price: 300,
+        description:"this is my "
     },
     {
         id:2,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'Sofa',
         catgory: 'Catgroy',
-        price: 300
+        price: 300,
+        description:"this is my "
     },
 ];
 
 function itemChosen(item) {
     clearItemsColor()
     item.style.backgroundColor = "white";
+    item.style.color = 'red';
     document.querySelector('.rightBar').innerHTML = '';
     let id = item.id;
     let selectITem = arrItems[id];
@@ -34,10 +38,13 @@ function itemChosen(item) {
           <!-- <img class="shopImage" src="https://img.freepik.com/free-vector/cartoon-style-cafe-front-shop-view_134830-697.jpg" alt="">
           <div class="headr">Your items</div> -->
           <div class="thisItemImg" style="background-image: url('https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png');"></div>
+          <div class='thisItemDesc'>
+            Description: <br> ${selectITem.description}
+          </div>
           <div class="infoBar">
             <div class="leftInfo">
               name: ${selectITem.name} <br>
-              price: 300 
+              price: ${selectITem.price} 
             </div>
             <div class="rightInfo">
               Catgroy: Catgroy <br>
@@ -93,6 +100,8 @@ function dialogFunction(post,itemSelcted) {
             arrItems.forEach(item => {
                 if (item.id == Number(thisID)) {
                     arrItems[thisID].name = document.querySelector('#dialName').value;
+                    arrItems[thisID].price = document.querySelector('#dialPrice').value;
+                    arrItems[thisID].description = document.querySelector('#dialDesc').value;
                     itemChosen(itemSelcted);
                     document.querySelector('dialog').close();
                     document.querySelector('.rightBar').innerHTML = "";
@@ -106,7 +115,7 @@ function dialogFunction(post,itemSelcted) {
 }
 
 function clearItemsColor() {
-    document.querySelectorAll('.item0').forEach(elemnt => elemnt.style.backgroundColor='#9DC08B');
+    document.querySelectorAll('.item0').forEach(elemnt => {elemnt.style.backgroundColor='#9DC08B';elemnt.style.color = 'white';});
 }
 function addItem() {
     let catgroy = document.querySelector('#itemCatgory').value;
