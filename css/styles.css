@@ -144,7 +144,7 @@ form {
     margin: 5% 0% 5% 0%;
 }
 
-input[type=text], input[type=number], input[type=email],input[type=password], select {
+input[type=text], input[type=number], input[type=email],input[type=password], select#itemCategory {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -152,6 +152,7 @@ input[type=text], input[type=number], input[type=email],input[type=password], se
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: white;
 }
 
 button[type=submit] {
