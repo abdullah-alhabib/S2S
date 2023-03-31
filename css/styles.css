@@ -206,7 +206,50 @@ footer{
 }
 
 
-
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #40513B;
+    background-color: #EDF1D6;
+    background-image: none;
+    cursor: pointer;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select wrapper */
+  .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  /* Transition */
+  .select:hover::after {
+    color: #EDF1D6;
+  }
+  
+  
 
 
 
@@ -216,7 +259,7 @@ footer{
         color: white;
         text-align:center;
     }
-    .img-iphone{
+    .img-sell{
         transform: rotate(0); 
         max-width: 100%;
         height: auto;
