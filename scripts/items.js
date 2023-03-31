@@ -4,7 +4,7 @@ arrItems = [
         id:0,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'Sofa',
-        catgory: 'Catgroy',
+        category: 'Catgroy',
         price: 300,
         description:"this is my "
     },
@@ -12,7 +12,7 @@ arrItems = [
         id:1,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'Sofa',
-        catgory: 'Catgroy',
+        category: 'Catgroy',
         price: 300,
         description:"this is my "
     },
@@ -20,7 +20,7 @@ arrItems = [
         id:2,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'Sofa',
-        catgory: 'Catgroy',
+        category: 'Catgroy',
         price: 300,
         description:"this is my "
     },
@@ -118,7 +118,7 @@ function clearItemsColor() {
     document.querySelectorAll('.item0').forEach(elemnt => {elemnt.style.backgroundColor='#9DC08B';elemnt.style.color = 'white';});
 }
 function addItem() {
-    let catgroy = document.querySelector('#itemCatgory').value;
+    let catgroy = document.querySelector('#itemCategory').value;
     let name = document.querySelector('#itemName').value;
     let bulding = document.querySelector('#itemBuilding').value;
     let price = document.querySelector('#itemPrice')
@@ -127,7 +127,7 @@ function addItem() {
     let fileImg = img.files;
 
     let object = {
-        itemCatgory: catgroy,
+        itemCategory: catgroy,
         itemName: name,
         itemBuilding: bulding,
         itemPrice: price,
@@ -143,7 +143,7 @@ function createItem(item) {
     <div id='${item.id}' class="item0">
         <div style="background-image: url(${item.img});" class="itemImg0"></div>
         <div class="itemRightBar">
-            <div class="itemCatgory">${item.catgory}</div>
+            <div class="itemCategory">${item.category}</div>
             <div class="itemName">${item.name}</div>
             <div class="itemPrice">${item.price}<span>SR</span></div>
         </div>
