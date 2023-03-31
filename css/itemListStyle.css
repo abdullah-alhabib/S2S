@@ -1,11 +1,15 @@
 body{margin: 0;}
 
 .myNav{
-    background-color: #9DC08B;
+    background-color: #609966;
     height: 5rem;
     padding: 1rem;
     display: flex;
     align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
 .logo{
@@ -13,16 +17,8 @@ body{margin: 0;}
     position: relative;
     left: 25%;
 }
+.logo a {text-decoration: none;color: black;}
 
-.theBody{
-    margin-top:3rem ;
-    height: 100%;
-    width: 100%;
-    background-color: #EDF1D6;
-    border-radius: 5rem;
-    padding-bottom: 5rem;
-
-}
 .hHeadr{
     width: 100%;
     display: flex;
@@ -34,18 +30,22 @@ body{margin: 0;}
     font-size: 3rem;
 }
 
-#shopImage{
+.shopImage{
     width: 25rem;
+    position: relative;
+    right: 1rem;
+    background-color: #609966;
 }
 
-.hbody{
+/* .hbody{
     height: 100%;
     width: 100%;
     padding: 1rem;
     overflow-y: scroll;
-}
+    background-color: rebeccapurple;
+} */
 
-.item{
+/* .item{
     height: 10rem;
     width: auto;
     background-color: #9DC08B;
@@ -54,20 +54,94 @@ body{margin: 0;}
     margin-top: 2rem;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
+} */
 
-.itemImg{
+/* .itemImg{
     width: 100%;
     background-size:contain;
     background-repeat: no-repeat;
     margin-right: 1rem;
     /* background-color: gray; */
-}
+ */
+
 .logo a{
     text-decoration: none;
     color: black;
 }
+
+.theBody{
+    position: relative;
+    top: 2rem;
+    height: 570px;
+    width: 100%;
+    background-color: #609966;
+    margin-top: 6rem;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    
+}
+
+.leftBar{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    position: relative;
+    overflow-y: scroll;
+
+}
 .rightBar{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+.item0{
+    position: static;
+    height: 10rem;
+    width: 100%;
+    background-color: #9DC08B;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+
+}
+
+.itemRightBar{
+    position: relative;
+    /* background-color: white; */
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.itemImg0{
+    width: 40%;
+    height: 80%;
+    margin: auto;
+    background-size:contain;
+    background-repeat: no-repeat;
+    /* margin-right: 1rem; */
+    /* background-color: gray; */
+}
+/* .rightBar{
     height: 100%;
     width: 80%;
     background-color: white;
@@ -78,7 +152,8 @@ body{margin: 0;}
     border-radius: 25px;
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
+
+} */
 
 .itemCatgory{
     position: absolute;
@@ -89,15 +164,63 @@ body{margin: 0;}
     
 }
 
-footer{
-    background-color: #9DC08B;
-    height: 2rem;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4rem;
+.itemName{
+    font-size: 2rem;
 }
+
+.itemPrice{
+    color: red;
+}
+
+.thisItemImg{
+    margin-top: 2rem;
+    width: 30%;
+    height: 20rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: #609966; */
+}
+.infoBar{
+    display: flex;
+    margin: 2rem;
+}
+.infoBar div{margin: 1rem;}
+
+dialog{
+    position: absolute;
+    left: 20%;
+    padding: 1rem;
+    border-radius: 25px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 1rem solid #609966;
+    z-index: 2;
+}
+#dial textarea{
+
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #609966;
+    color: white;
+    text-align: center;
+}
+
+.btnBar{
+    position: relative;
+    top: 1rem;
+    /* background-color: #609966; */
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.btnBar button{margin: 1rem;width: 5rem;}
 
 @media screen and (min-width:960px) {
     .itemImg{
