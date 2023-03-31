@@ -267,3 +267,91 @@ select {
         position: static;
     }
 }
+
+
+/* popup sign in page  */
+.modal {
+    /* display: none; */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(125, 245, 201, 0); 
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0, 0.15);
+    width: 350px; 
+    height: 350px;
+  }
+  .modal-content-reg{
+    background-color: #fefefe;
+    margin: 15% auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0, 0.15);
+    width: 350px; 
+    height: 550px;
+    position: relative;
+  }
+  .modal-content h2 {
+    background-color: #fefefe;
+    width: 50%; 
+    text-align: center;
+  }
+  .user-info{
+    margin: 10px 0;
+  }
+
+input[type="email"],input[type="password"]{
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline:none ;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+input[type="submit"]{
+    width: 100%;
+    height: 40px;
+    border:none;
+    border-radius: 10px;
+    background-color: #222;
+    color: #eee;
+    cursor: pointer;
+    margin-top: 10px;
+}
+  
+  /* Close Button */
+  .close {
+    position: absolute;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    right: 9px;
+    top: 0;
+  } 
+  
+   .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+ 
