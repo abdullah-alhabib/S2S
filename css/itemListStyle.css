@@ -15,8 +15,13 @@ body{margin: 0;}
 }
 
 .theBody{
+    margin-top:3rem ;
     height: 100%;
     width: 100%;
+    background-color: #EDF1D6;
+    border-radius: 5rem;
+    padding-bottom: 5rem;
+
 }
 .hHeadr{
     width: 100%;
