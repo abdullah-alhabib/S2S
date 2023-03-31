@@ -124,7 +124,7 @@ body{margin: 0;}
     width: 100%;
     background-color: #9DC08B;
     display: flex;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0, 0.15);
     /* border-bottom-left-radius: 25px;
     border-top-left-radius: 25px; */
 
@@ -245,6 +245,7 @@ footer{
 }
 @media screen and (max-width:740px) {
     .theBody{
+        /* background-color: aqua; */
         margin: 6rem 0 0 0 ;
     }
     .leftBar{
