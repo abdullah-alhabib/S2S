@@ -194,8 +194,22 @@ body{margin: 0;}
 .infoBar{
     display: flex;
     margin: 2rem;
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: #609966;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
-.infoBar div{margin: 1rem;}
+.infoBar div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+   
+}
 
 dialog{
     position: absolute;
@@ -306,7 +320,7 @@ footer{
         position: static;
     }
     .thisItemImg{
-        margin-top: 18rem;
+        margin-top: 22rem;
         padding: 5rem;
         height: 100%;
     }

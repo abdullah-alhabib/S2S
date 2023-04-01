@@ -356,4 +356,76 @@ input[type="submit"]{
     cursor: pointer;
   }
 
- 
+ /*badr's work*/
+ dialog{
+    width: 35%;
+    height: 50%;
+    overflow-y: scroll;
+    outline: 2px solid #609966;
+ }
+ .diaHeadr{
+    padding: 1rem;
+    width: 100%;
+    height: 1rem;
+    position: relative;
+ }
+ .diaHeadr i{
+    position: absolute;
+    right: 0;
+ }
+ .idiv{
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+ }
+ .thisItemImg{
+    position: absolute;
+    width: 50%;
+    height: 15rem;
+    top: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: #609966; */
+}
+.infoBar{
+    display: flex;
+    margin: 2rem;
+    margin-top: 20rem;
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: #609966;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.infoBar div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+   
+}
+
+.diaBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+    bottom: 2rem;
+}
+.reqBtn{
+    margin-bottom: 2rem;
+}
+.diaFotter{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

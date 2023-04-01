@@ -6,7 +6,7 @@ arrItems = [
         name: 'phone',
         category: 'Catgroy',
         price: 300,
-        description:"this is my "
+        description:"this is my item"
     },
     {
         id:1,
@@ -14,7 +14,7 @@ arrItems = [
         name: 'phone',
         category: 'Catgroy',
         price: 300,
-        description:"this is my "
+        description:"this is my item"
     },
     {
         id:2,
@@ -22,7 +22,7 @@ arrItems = [
         name: 'phone',
         category: 'Catgroy',
         price: 300,
-        description:"this is my "
+        description:"this is my item"
     },
 ];
 
@@ -51,14 +51,16 @@ function itemChosen(item) {
           </div>
           <div class="infoBar">
             <div class="leftInfo">
-              name: ${selectITem.name} <br>
-              price: ${selectITem.price} 
+            name: sofa <br>
+            price: 300 SR <br>
+            bulding: 845
             </div>
             <div class="rightInfo">
-              Catgroy: Catgroy <br>
-              Date posted: 2023
+            Catgroy: Catgroy <br>
+            Date posted: 2023 <br>
+            seller : badr mohammed
             </div>
-          </div>
+        </div>
           <div class="contactInfo">
             people who wants this item: <br>
             badr@hotmail.com <br>
