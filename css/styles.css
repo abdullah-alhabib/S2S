@@ -369,15 +369,14 @@ input[type="submit"]{
     height: 1rem;
     position: relative;
  }
- .diaHeadr i{
+ .closeMark{
+    z-index: 3;
     position: absolute;
+    width: 3rem;
+    top: 0;
     right: 0;
  }
- .idiv{
-    width: 100px;
-    height: 100px;
-    z-index: 2;
- }
+
  .thisItemImg{
     position: absolute;
     width: 50%;
@@ -428,4 +427,21 @@ input[type="submit"]{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width:1060px){
+    dialog{
+        width: 50%;
+    }
+}
+@media screen and (max-width:900px){
+    dialog{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:560px){
+    dialog{
+        width: 80%;
+    }
 }
