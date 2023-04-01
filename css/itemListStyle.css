@@ -202,16 +202,18 @@ dialog{
     left: 20%;
     padding: 1rem;
     border-radius: 25px;
-    width: 50%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    outline: 1rem solid #609966;
+    outline: 2px solid #609966;
     z-index: 2;
 }
-#dial textarea{
-
+dialog textarea{
+    width: 100%;
 }
+
+
 
 footer{
     position: fixed;
@@ -253,6 +255,10 @@ footer{
     }
     .rightBar{
         width: 60%;
+    }
+    dialog{width: 60%;left: 0;}
+    dialog textarea{
+        width: 200px;
     }
 }
 
@@ -315,5 +321,12 @@ footer{
     }
     .itemRightBar{
         width: 60%;
+    }
+    dialog{
+        width: 100%;
+        left: 0;
+    }
+    dialog textarea{
+        width: 400px;
     }
 }
