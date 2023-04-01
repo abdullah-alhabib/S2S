@@ -3,7 +3,7 @@ arrItems = [
     {
         id:0,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
-        name: 'Sofa',
+        name: 'phone',
         category: 'Catgroy',
         price: 300,
         description:"this is my "
@@ -11,7 +11,7 @@ arrItems = [
     {
         id:1,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
-        name: 'Sofa',
+        name: 'phone',
         category: 'Catgroy',
         price: 300,
         description:"this is my "
@@ -19,7 +19,7 @@ arrItems = [
     {
         id:2,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
-        name: 'Sofa',
+        name: 'phone',
         category: 'Catgroy',
         price: 300,
         description:"this is my "
@@ -32,7 +32,15 @@ function itemChosen(item) {
     item.style.color = 'red';
     document.querySelector('.rightBar').innerHTML = '';
     let id = item.id;
-    let selectITem = arrItems[id];
+    let selectITem;
+    let index = 0;
+    for(its of arrItems){
+        if (its.id==id) {
+            selectITem=arrItems[index];
+            break;
+        }
+        index++;
+    }
     let post  = `
     <div class="rightBar">
           <!-- <img class="shopImage" src="https://img.freepik.com/free-vector/cartoon-style-cafe-front-shop-view_134830-697.jpg" alt="">
@@ -65,6 +73,21 @@ function itemChosen(item) {
     document.querySelector('.rightBar').innerHTML = '';
     document.querySelector('.rightBar').innerHTML = post;
     dialogFunction(post,item);
+
+    document.querySelector('.closeBtn').addEventListener('click',(el)=>{
+        let thisID = el.target.id;
+        arrItems.forEach(it=>{
+            if (it.id==thisID) {
+                arrItems.splice(arrItems.indexOf(it), 1);
+            }
+        })
+        document.querySelector('.rightBar').innerHTML = '';
+        document.querySelector('.rightBar').innerHTML = `
+        <img class="shopImage" src="https://img.freepik.com/free-vector/cartoon-style-cafe-front-shop-view_134830-697.jpg" alt="">
+          <div class="headr">Your items</div>
+        `;
+        genrateItems();
+    })
     
 }
 
@@ -103,9 +126,10 @@ function dialogFunction(post,itemSelcted) {
                     arrItems[thisID].price = document.querySelector('#dialPrice').value;
                     arrItems[thisID].description = document.querySelector('#dialDesc').value;
                     itemChosen(itemSelcted);
-                    document.querySelector('dialog').close();
+                    // document.querySelector('dialog').close();
                     document.querySelector('.rightBar').innerHTML = "";
                     document.querySelector('.rightBar').innerHTML = post;
+                    genrateItems();
                 }
             })
         })
@@ -153,12 +177,13 @@ function createItem(item) {
 }
 
 function genrateItems() {
+    document.querySelector('.leftBar').innerHTML = '';
     arrItems.forEach(elemnt => {
         createItem(elemnt)
     })
+    //adding event listner for items
+    document.querySelectorAll('.item0').forEach(item => item.addEventListener('click',elemnt=>{
+        itemChosen(item);
+    }))
 }
 genrateItems()
-//adding event listner for items
-document.querySelectorAll('.item0').forEach(item => item.addEventListener('click',elemnt=>{
-    itemChosen(item);
-}))
