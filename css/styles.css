@@ -257,15 +257,16 @@ select {
 
 @media screen and (max-width:1028px){
     #title{
-        background-color: #ff4c68;
+        background-color: #609966;
         color: white;
-        text-align:center;
+        text-align:center; 
+        position: relative;
     }
     .img-sell{
         transform: rotate(0); 
         max-width: 100%;
         height: auto;
-        position: static;
+        position: absolute;
     }
 }
 
