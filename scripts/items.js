@@ -6,7 +6,7 @@ arrItems = [
         name: 'phone',
         category: 'Category',
         price: 300,
-        description:"this is my item"
+        description:"this is a phone"
     },
     {
         id:1,
@@ -14,7 +14,7 @@ arrItems = [
         name: 'phone',
         category: 'Category',
         price: 300,
-        description:"this is my item"
+        description:"this is a phone"
     },
     {
         id:2,
@@ -22,7 +22,7 @@ arrItems = [
         name: 'phone',
         category: 'Category',
         price: 300,
-        description:"this is my item"
+        description:"this is a phone"
     },
 ];
 
@@ -51,12 +51,12 @@ function itemChosen(item) {
           </div>
           <div class="infoBar">
             <div class="leftInfo">
-            name: sofa <br>
+            name: phone <br>
             price: 300 SR <br>
             bulding: 845
             </div>
             <div class="rightInfo">
-            Category: Category <br>
+            Category: Electronics <br>
             Date posted: 2023 <br>
             seller : badr mohammed
             </div>
