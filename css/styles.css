@@ -359,8 +359,8 @@ input[type="submit"]{
  /*badr's work*/
  dialog{
     width: 35%;
-    height: 50%;
-    overflow-y: scroll;
+    height: 65%;
+    /* overflow-y: scroll; */
     outline: 2px solid #609966;
  }
  .diaHeadr{

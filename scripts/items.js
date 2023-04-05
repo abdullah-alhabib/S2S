@@ -4,7 +4,7 @@ arrItems = [
         id:0,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'phone',
-        category: 'Catgroy',
+        category: 'Category',
         price: 300,
         description:"this is my item"
     },
@@ -12,7 +12,7 @@ arrItems = [
         id:1,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'phone',
-        category: 'Catgroy',
+        category: 'Category',
         price: 300,
         description:"this is my item"
     },
@@ -20,7 +20,7 @@ arrItems = [
         id:2,
         img:'https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png',
         name: 'phone',
-        category: 'Catgroy',
+        category: 'Category',
         price: 300,
         description:"this is my item"
     },
@@ -56,7 +56,7 @@ function itemChosen(item) {
             bulding: 845
             </div>
             <div class="rightInfo">
-            Catgroy: Catgroy <br>
+            Category: Category <br>
             Date posted: 2023 <br>
             seller : badr mohammed
             </div>
@@ -144,7 +144,7 @@ function clearItemsColor() {
     document.querySelectorAll('.item0').forEach(elemnt => {elemnt.style.backgroundColor='#9DC08B';elemnt.style.color = 'white';});
 }
 function addItem() {
-    let catgroy = document.querySelector('#itemCategory').value;
+    let category = document.querySelector('#itemCategory').value;
     let name = document.querySelector('#itemName').value;
     let bulding = document.querySelector('#itemBuilding').value;
     let price = document.querySelector('#itemPrice')
@@ -153,7 +153,7 @@ function addItem() {
     let fileImg = img.files;
 
     let object = {
-        itemCategory: catgroy,
+        itemCategory: category,
         itemName: name,
         itemBuilding: bulding,
         itemPrice: price,
