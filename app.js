@@ -37,13 +37,14 @@ const itemSchema= new mongoose.Schema({
   price: Number, 
   building: String, 
   description: String, 
+  owner:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   
   });
 const Item = mongoose.model('Item',itemSchema );
 
 // user data base 
 
-const userSchema= new mongoose.Schema({ email: String , password:String }); //items:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }]
+const userSchema= new mongoose.Schema({ email: String , password:String, items:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }] }); //items:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }]
 userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model('User',userSchema );
 passport.use(User.createStrategy());
@@ -56,15 +57,23 @@ passport.deserializeUser(User.deserializeUser());
 
 //          routing
 app.get('/', async (req, res) => { 
-    res.render('index');  
+  const found=await Item.find({})
+  console.log( found);
+    res.render('index', {items:found});  
   })
 app.get('/login', async (req, res) => { 
-      res.render('login');  
+      res.render('loginAndreg');  
 })
 
 app.get('/register', async (req, res) => { 
-        res.render('register');  
+        res.render('loginAndreg');  
     })
+
+    app.get('/myItems', async (req, res) => { 
+      res.render('items');  
+  })
+
+
     app.get('/sell', async (req, res) => { 
         console.log(req.isAuthenticated());
         if(req.isAuthenticated()){
@@ -85,7 +94,7 @@ app.get('/register', async (req, res) => {
         
           const authenticate = User.authenticate();
           authenticate(username, password, function(err, result) {
-            if (err) {  }
+            if (err) { console.log("reg error") }
         
             else{res.redirect('/')}
           });
@@ -93,20 +102,26 @@ app.get('/register', async (req, res) => {
         
        
       })
-      app.post('/upload', (req, res) => {
-        console.log(req.body.itemCategory);
+      app.post('/upload', async (req, res) => {
        
 
+       
 
+        const itemId= new mongoose.Types.ObjectId();
         const newItem = new Item({
+          _id:itemId,
           category: req.body.itemCategory,
           name: req.body.itemName,
           price: req.body.itemPrice,
           building: req.body.itemBuilding,
           description: req.body.itemDescription,
+          owner:req.user.id
         });
-        console.log(newItem);
         newItem.save();
+        const foundUser=await User.findOne({_id:req.user.id})
+        foundUser.items.push(itemId);
+        foundUser.save();
+
         res.redirect('/');
          
       });
