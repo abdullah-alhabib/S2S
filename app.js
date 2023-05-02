@@ -26,8 +26,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+mongoose.connect(
+  `mongodb+srv://swe363:swe363@cluster0.vzavf7e.mongodb.net/?retryWrites=true&w=majority`, 
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
-mongoose.connect('mongodb://127.0.0.1:27017/S2SDb');
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", function () {
+  console.log("Connected successfully");
+});
+// mongoose.connect('mongodb+srv://swe363:swe363@cluster0.vzavf7e.mongodb.net/?retryWrites=true&w=majority');
 
 //item data base
 
@@ -58,7 +70,7 @@ passport.deserializeUser(User.deserializeUser());
 //          routing
 app.get('/', async (req, res) => { 
   const found=await Item.find({})
-  console.log( found);
+  // console.log( found);
     res.render('index', {items:found});  
   })
 app.get('/login', async (req, res) => { 
