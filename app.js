@@ -84,7 +84,10 @@ app.get('/register', async (req, res) => {
 
     app.get('/myItems', async (req, res) => { 
       if(req.isAuthenticated()){
-        res.render('items'); 
+        let userId = req.user.id;
+        const items = await Item.find({ owner: userId });
+        res.render('items',{items}); 
+        console.log('done');
       }else{
         res.redirect('/login')
       }
