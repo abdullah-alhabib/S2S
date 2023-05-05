@@ -82,12 +82,17 @@ app.get('/register', async (req, res) => {
     })
 
     app.get('/myItems', async (req, res) => { 
-      res.render('items');  
+      if(req.isAuthenticated()){
+        res.render('items'); 
+      }else{
+        res.redirect('/login')
+      }
+      
   })
 
 
     app.get('/sell', async (req, res) => { 
-        console.log(req.isAuthenticated());
+        // console.log(req.isAuthenticated());
         if(req.isAuthenticated()){
             res.render('additem'); 
           }else{
@@ -103,16 +108,35 @@ app.get('/register', async (req, res) => {
           if (err) { 
             res.redirect('/register')
            } 
-        
-          const authenticate = User.authenticate();
-          authenticate(username, password, function(err, result) {
-            if (err) { console.log("reg error") }
-        
-            else{res.redirect('/')}
-          });
+           req.login(user, function(err) {
+            if (err) {
+              console.log(err);
+              res.redirect('/login');
+            } else {
+              // console.log('User has been logged in after registration');
+              res.redirect('/');
+            }
+
+
+             });
+          
         });
+        // const authenticate = User.authenticate();
+        //   authenticate(username, password, function(err, result) {
+        //     if (err) { console.log("reg error") }
         
-       
+        //     else{res.redirect('/')}
+        //   });
+          // req.login({username: username}, password, function(err) {
+          //   if (err) { console.log(req.isAuthenticated()); }
+          //   console.log(req.isAuthenticated());
+          
+          // });
+          
+          // passport.authenticate('local', {
+          //   successRedirect: '/',
+          //   failureRedirect: '/login',
+          // })
       })
       app.post('/upload', async (req, res) => {
        
