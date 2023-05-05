@@ -166,7 +166,7 @@ function addItem() {
 function createItem(item) {
 
     let post = `
-    <div id='${item.id}' class="item0">
+    <div id='${item._id}' class="item0">
         <div style="background-image: url(${item.img});" class="itemImg0"></div>
         <div class="itemRightBar">
             <div class="itemCategory">${item.category}</div>

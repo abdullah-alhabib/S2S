@@ -5,8 +5,9 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
 app.set('view engine', 'ejs');
+app.use(express.json())
 
-const port = 3000
+const port = 5001
 const LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session')
 var passport = require('passport')
@@ -167,7 +168,10 @@ app.get('/register', async (req, res) => {
         successRedirect: '/',
         failureRedirect: '/login',
       }));
-  
+      
+      app.get('/data/items',(req,res) => {
+        
+      })
 
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
