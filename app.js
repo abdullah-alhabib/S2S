@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const app = express()
 const multer = require('multer');
 const bodyParser = require('body-parser')
@@ -6,7 +6,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
 app.set('view engine', 'ejs');
 
-const port = 3000
+const port = 3000;
 const LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session')
 var passport = require('passport')
@@ -89,7 +89,7 @@ app.get('/register', async (req, res) => {
       }
       
   })
-
+ 
 
     app.get('/sell', async (req, res) => { 
         // console.log(req.isAuthenticated());
@@ -99,6 +99,40 @@ app.get('/register', async (req, res) => {
             res.redirect('/login')
           }
     })
+    app.get("/select", async (req, res)=> {
+      const found=await Item.find({})
+      var label;
+      let filteredObjects;
+      const selections = {
+        Electronics: ["laptop", "phone", "tablet","headphones","speakers","tv","camera"],
+        Furniture: ["desk", "chair", "bed","couch"],
+        Clothing: ["shirt", "pants", "shoes"],
+        Books: ["textbook", "novel"]
+      };
+      const selected = req.query.selected;
+      if(selected==1){
+        label="Electronics";
+      }else if (selected==2){
+        label="Furniture";
+      }else if (selected==3){
+        label="Clothing";
+      }else if (selected==4){
+        label="Books";
+      }else{
+        label="other"
+      }
+      if(label=="other"){
+        filteredObjects = found;
+        console.log(filteredObjects);
+      }else{
+        filteredObjects = found.filter(object => selections[label].includes(object.category));
+        console.log(filteredObjects);
+      }
+     //code works fine the problem only in rendering the page
+      res.render('index', {items:filteredObjects});  
+    });
+
+
     app.post('/register', async (req, res) => { 
         
         const username=req.body.username;
@@ -139,10 +173,6 @@ app.get('/register', async (req, res) => {
           // })
       })
       app.post('/upload', async (req, res) => {
-       
-
-       
-
         const itemId= new mongoose.Types.ObjectId();
         const newItem = new Item({
           _id:itemId,
