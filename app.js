@@ -5,8 +5,9 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
 app.set('view engine', 'ejs');
+app.use(express.json())
 
-const port = 3000;
+const port = 3000
 const LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session')
 var passport = require('passport')
@@ -83,7 +84,10 @@ app.get('/register', async (req, res) => {
 
     app.get('/myItems', async (req, res) => { 
       if(req.isAuthenticated()){
-        res.render('items'); 
+        let userId = req.user.id;
+        const items = await Item.find({ owner: userId });
+        res.render('items',{items}); 
+        console.log('done');
       }else{
         res.redirect('/login')
       }
@@ -197,7 +201,10 @@ app.get('/register', async (req, res) => {
         successRedirect: '/',
         failureRedirect: '/login',
       }));
-  
+      
+      app.get('/data/items',(req,res) => {
+        
+      })
 
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
