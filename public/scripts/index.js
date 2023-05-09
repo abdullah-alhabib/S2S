@@ -53,6 +53,25 @@ function sortItem(){
   })
   .then(data => {
     console.log('Response data:', data);
+
+    var cardContainer = document.getElementById('item-container');
+    cardContainer.innerHTML = ''; // Clear existing cards
+  
+    data.forEach(item => {
+      var cardDiv = document.createElement('div');
+      cardDiv.className = 'col-lg-4 col-md-6';
+      cardDiv.innerHTML = `
+        <div class="card citem">
+          <img src="https://static.nike.com/a/images/t_default/awjogtdnqxniqqk0wpgf/air-max-270-shoes-nnTrqDGR.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">${item.name}</h3>
+            <p class="card-text">${item.description}</p>
+            <a href="#" class="btn btn-outline-success">Buy Now</a>
+          </div>
+        </div>
+      `;
+      cardContainer.appendChild(cardDiv);
+    });
   })
   .catch(error => {
     console.error('Error:', error);

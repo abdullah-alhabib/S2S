@@ -127,13 +127,10 @@ app.get('/register', async (req, res) => {
       }
       if(label=="other"){
         filteredObjects = found;
-        console.log(filteredObjects);
       }else{
         filteredObjects = found.filter(object => selections[label].includes(object.category));
-        console.log(filteredObjects);
       }
-     //code works fine the problem only in rendering the page
-      res.render('index', {items:filteredObjects});  
+    res.json(filteredObjects);  
     });
 
 
