@@ -7,7 +7,7 @@ app.use(express.static("public"))
 app.set('view engine', 'ejs');
 app.use(express.json())
 
-const port = 5001
+const port = 3000
 const LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session')
 var passport = require('passport')
@@ -86,13 +86,27 @@ app.get('/register', async (req, res) => {
       if(req.isAuthenticated()){
         let userId = req.user.id;
         const items = await Item.find({ owner: userId });
-        res.render('items',{items}); 
-        console.log('done');
+        res.render('items',{items , userId}); 
+        // console.log('done');
       }else{
         res.redirect('/login')
       }
       
   })
+    app.get('/api/items',async (req,res) => {
+        let userId = req.user.id;
+        const items = await Item.find({ owner: userId });
+        res.json(items);
+    })
+
+    app.patch('/api/items/:id', async (req,res) => {
+      const item = await Item.findById(req.params.id);
+      item.name = req.body.name;
+      item.price = req.body.price;
+      item.description = req.body.description;
+      const updatedItem = await item.save();
+      res.json(updatedItem);
+    })
  
 
     app.get('/sell', async (req, res) => { 
@@ -127,10 +141,10 @@ app.get('/register', async (req, res) => {
       }
       if(label=="other"){
         filteredObjects = found;
-        console.log(filteredObjects);
+        // console.log(filteredObjects);
       }else{
         filteredObjects = found.filter(object => selections[label].includes(object.category));
-        console.log(filteredObjects);
+        // console.log(filteredObjects);
       }
      //code works fine the problem only in rendering the page
       res.render('index', {items:filteredObjects});  

@@ -35,7 +35,7 @@ function itemChosen(item) {
     let selectITem;
     let index = 0;
     for(its of arrItems){
-        if (its.id==id) {
+        if (its._id==id) {
             selectITem=arrItems[index];
             break;
         }
@@ -118,20 +118,41 @@ function dialogFunction(post,itemSelcted) {
             document.querySelector('dialog').close();
             document.querySelector('.rightBar').innerHTML = "";
             document.querySelector('.rightBar').innerHTML = post;
-            dialogFunction(post);
+            dialogFunction(post,itemSelcted);
         })
 
         document.querySelector('.confirmBtn').addEventListener('click',(el)=>{
+            // alert(thisID)
             arrItems.forEach(item => {
-                if (item.id == Number(thisID)) {
-                    arrItems[thisID].name = document.querySelector('#dialName').value;
-                    arrItems[thisID].price = document.querySelector('#dialPrice').value;
-                    arrItems[thisID].description = document.querySelector('#dialDesc').value;
+                if (item._id == thisID) {
+                    // alert(thisID)
+                    item.name = document.querySelector('#dialName').value;
+                    item.price = document.querySelector('#dialPrice').value;
+                    item.description = document.querySelector('#dialDesc').value;
                     itemChosen(itemSelcted);
                     // document.querySelector('dialog').close();
-                    document.querySelector('.rightBar').innerHTML = "";
-                    document.querySelector('.rightBar').innerHTML = post;
-                    genrateItems();
+                    // document.querySelector('.rightBar').innerHTML = "";
+                    // document.querySelector('.rightBar').innerHTML = post;
+                    
+                    //update in database
+                    fetch('/api/items/'+item._id, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name:item.name,
+                        price:item.price,
+                        description:item.description
+                    })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        setArray();
+                        
+                    })
+                    .catch(error => console.error(error));
+                    
                 }
             })
         })
@@ -166,8 +187,8 @@ function addItem() {
 function createItem(item) {
 
     let post = `
-    <div id='${item.id}' class="item0">
-        <div style="background-image: url(${item.img});" class="itemImg0"></div>
+    <div id='${item._id}' class="item0">
+        <div style="background-image: url('https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png');" class="itemImg0"></div>
         <div class="itemRightBar">
             <div class="itemCategory">${item.category}</div>
             <div class="itemName">${item.name}</div>
@@ -178,8 +199,27 @@ function createItem(item) {
     document.querySelector('.leftBar').innerHTML += post;
 }
 
+async function setArray() {
+    arrItems = [];
+    let id = document.querySelector('.theBody').id;
+    arrItems = await getData();
+    genrateItems();
+}
+
+async function getData() {
+    const response = await fetch('/api/items');
+    const data = await response.json();
+    return data;
+}
+  
+
 function genrateItems() {
     document.querySelector('.leftBar').innerHTML = '';
+    document.querySelector('.rightBar').innerHTML = '';
+    document.querySelector('.rightBar').innerHTML += `
+    <img class="shopImage" src="https://img.freepik.com/free-vector/cartoon-style-cafe-front-shop-view_134830-697.jpg" alt="">
+    <div class="headr">Your items</div>
+    `
     arrItems.forEach(elemnt => {
         createItem(elemnt)
     })
@@ -188,4 +228,5 @@ function genrateItems() {
         itemChosen(item);
     }))
 }
-genrateItems()
+// genrateItems()
+setArray();
