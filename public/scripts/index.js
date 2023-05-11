@@ -60,6 +60,7 @@ function sortItem(){
     data.forEach(item => {
       var cardDiv = document.createElement('div');
       cardDiv.className = 'col-lg-4 col-md-6';
+      cardDiv.onclick = function() { showMsg('Hello'); };
       cardDiv.innerHTML = `
         <div class="card citem">
           <img src="https://static.nike.com/a/images/t_default/awjogtdnqxniqqk0wpgf/air-max-270-shoes-nnTrqDGR.png" class="card-img-top" alt="...">
@@ -76,6 +77,9 @@ function sortItem(){
   .catch(error => {
     console.error('Error:', error);
   });
+}
+function showMsg(item) {
+  alert(item);
 }
 // When the user clicks anywhere outside of the modals, close them
 window.onclick = function(event) {
