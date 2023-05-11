@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express()
 const multer = require('multer');
+const fs = require('fs');
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
@@ -50,6 +51,10 @@ const itemSchema= new mongoose.Schema({
   price: Number, 
   building: String, 
   description: String, 
+  itemPhoto: {
+    data: Buffer,
+    contentType: String
+  },
   owner:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   
   });
@@ -189,7 +194,10 @@ app.get('/register', async (req, res) => {
           //   failureRedirect: '/login',
           // })
       })
-      app.post('/upload', async (req, res) => {
+
+      const uploadImage = multer({ dest: 'public/uploadedImages/' });
+
+      app.post('/upload', uploadImage.single('itemPhoto'), async (req, res) => {
         const itemId= new mongoose.Types.ObjectId();
         const newItem = new Item({
           _id:itemId,
@@ -198,8 +206,12 @@ app.get('/register', async (req, res) => {
           price: req.body.itemPrice,
           building: req.body.itemBuilding,
           description: req.body.itemDescription,
+          itemPhoto: {
+            data: req.file.buffer,
+            contentType: req.file.mimetype
+          },
           owner:req.user.id
-        });
+        });   
         newItem.save();
         const foundUser=await User.findOne({_id:req.user.id})
         foundUser.items.push(itemId);

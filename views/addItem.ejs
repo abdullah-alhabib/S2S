@@ -18,8 +18,6 @@
 
 <body>
 
-
-
     <!-- nav bar -->
     <nav class="nav-page">
         <a href="index.html">
@@ -29,7 +27,7 @@
 
     <section id="features">
 
-    <form class="container-fluid" action="/upload" method="POST">
+    <form class="container-fluid" action="/upload" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="itemCategory">Item Category</label>
             <select id="itemCategory" name="itemCategory">
@@ -82,10 +80,10 @@
             <label for="itemDescription">Item Description</label>
             <textarea name="itemDescription" id="itemDesc" class="form-control" id="itemDescription" rows="3"></textarea>
         </div>
-        <!-- <label for="itemPhoto">Item Photo</label>
+        <label for="itemPhoto">Item Photo</label>
         <div class="form-group" id="photo">
             <input name="itemPhoto" required id="itemFileImg" type="file" id="itemPhoto" name="itemPhoto" accept="image/png, image/jpeg">
-        </div> -->
+        </div>
         <button type="submit" id="uploadBtn" class="btn btn-primary">Upload</button>
     </form>
     </section>
