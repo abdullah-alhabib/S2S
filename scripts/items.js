@@ -188,4 +188,4 @@ function genrateItems() {
         itemChosen(item);
     }))
 }
-genrateItems()
+// genrateItems()

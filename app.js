@@ -86,13 +86,27 @@ app.get('/register', async (req, res) => {
       if(req.isAuthenticated()){
         let userId = req.user.id;
         const items = await Item.find({ owner: userId });
-        res.render('items',{items}); 
-        console.log('done');
+        res.render('items',{items , userId}); 
+        // console.log('done');
       }else{
         res.redirect('/login')
       }
       
   })
+    app.get('/api/items',async (req,res) => {
+        let userId = req.user.id;
+        const items = await Item.find({ owner: userId });
+        res.json(items);
+    })
+
+    app.patch('/api/items/:id', async (req,res) => {
+      const item = await Item.findById(req.params.id);
+      item.name = req.body.name;
+      item.price = req.body.price;
+      item.description = req.body.description;
+      const updatedItem = await item.save();
+      res.json(updatedItem);
+    })
  
 
     app.get('/sell', async (req, res) => { 
@@ -127,8 +141,10 @@ app.get('/register', async (req, res) => {
       }
       if(label=="other"){
         filteredObjects = found;
+        console.log(filteredObjects);
       }else{
         filteredObjects = found.filter(object => selections[label].includes(object.category));
+        console.log(filteredObjects);
       }
     res.json(filteredObjects);  
     });
