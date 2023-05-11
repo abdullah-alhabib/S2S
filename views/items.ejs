@@ -23,13 +23,13 @@
             
         </div> -->
         <div class="leftBar">
-            <% for( let index = 0; index < items.length; index++ ) { %>
+            <% for( item of items ) { %>
                 <div class="item0">
                     <div style="background-image: url('https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png');" class="itemImg0"></div>
                     <div class="itemRightBar">
-                        <div class="itemCategory">Electronics</div>
-                        <div class="itemName">phone</div>
-                        <div class="itemPrice">250<span>SR</span></div>
+                        <div class="itemCategory"><%= item.category %></div>
+                        <div class="itemName"><%= item.name %></div>
+                        <div class="itemPrice"<%= item.price %><span>SR</span></div>
                     </div>
                 </div>
             <% } %>
@@ -104,5 +104,5 @@
         @2023
     </footer>
 </body>
-<script src="scripts/items.js"></script>
+<!-- <script src="scripts/items.js"></script> -->
 </html>

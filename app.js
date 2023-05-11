@@ -7,7 +7,7 @@ app.use(express.static("public"))
 app.set('view engine', 'ejs');
 app.use(express.json())
 
-const port = 3000
+const port = 5001
 const LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session')
 var passport = require('passport')
