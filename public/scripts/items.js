@@ -220,6 +220,7 @@ function genrateItems() {
     <img class="shopImage" src="https://img.freepik.com/free-vector/cartoon-style-cafe-front-shop-view_134830-697.jpg" alt="">
     <div class="headr">Your items</div>
     `
+    //
     arrItems.forEach(elemnt => {
         createItem(elemnt)
     })
