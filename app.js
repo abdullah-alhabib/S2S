@@ -104,6 +104,20 @@ app.get('/register', async (req, res) => {
         res.json(items);
     })
 
+    app.get('/api/items/:id', async (req, res) => {
+      try {
+        const item = await Item.findById(req.params.id);
+        if (item) {
+          res.json(item);
+        } else {
+          res.status(404).send();
+        }
+      } catch (error) {
+        res.status(500).send(error);
+      }
+    });
+    
+
     app.patch('/api/items/:id', async (req,res) => {
       const item = await Item.findById(req.params.id);
       item.name = req.body.name;
@@ -112,6 +126,22 @@ app.get('/register', async (req, res) => {
       const updatedItem = await item.save();
       res.json(updatedItem);
     })
+
+    app.delete('/api/items/:id', async (req, res) => {
+      try {
+        const result = await Item.deleteOne({ _id: req.params.id });
+        if (result.deletedCount === 1) {
+          // If the document was successfully deleted
+          res.status(204).send();
+        } else {
+          // If the document was not found
+          res.status(404).send();
+        }
+      } catch (error) {
+        // If an error occurred
+        res.status(500).send(error);
+      }
+    });
  
 
     app.get('/sell', async (req, res) => { 
