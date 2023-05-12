@@ -79,10 +79,12 @@ function itemChosen(item) {
     document.querySelector('.closeBtn').addEventListener('click',(el)=>{
         // alert("close")
         let thisID = el.target.id;
-        arrItems.forEach(it=>{
+        arrItems.forEach(async (it)=>{
             if (it._id==thisID) {
-                alert('found')
                 arrItems.splice(arrItems.indexOf(it), 1);
+                await fetch(`/api/items/${thisID}`, {
+                    method: 'DELETE',
+                })
             }
         })
         document.querySelector('.rightBar').innerHTML = '';
