@@ -53,7 +53,8 @@ const itemSchema= new mongoose.Schema({
   description: String, 
   itemPhoto: {
     data: Buffer,
-    contentType: String
+    contentType: String,
+    path: String
   },
   owner:{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   
@@ -245,7 +246,8 @@ app.get('/register', async (req, res) => {
           description: req.body.itemDescription,
           itemPhoto: {
             data: req.file.buffer,
-            contentType: req.file.mimetype
+            contentType: req.file.mimetype,
+            path: req.file.path
           },
           owner:req.user.id
         });   
