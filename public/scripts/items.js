@@ -51,14 +51,14 @@ function itemChosen(item) {
           </div>
           <div class="infoBar">
             <div class="leftInfo">
-            name: sofa <br>
-            price: 300 SR <br>
-            bulding: 845
+            name: ${selectITem.name} <br>
+            price: ${selectITem.price} SR <br>
+            bulding: ${selectITem.bulding}
             </div>
             <div class="rightInfo">
-            Catgroy: Catgroy <br>
+            Catgroy: ${selectITem.category} <br>
             Date posted: 2023 <br>
-            seller : badr mohammed
+            seller : ${selectITem.owner}
             </div>
         </div>
           <div class="contactInfo">
@@ -77,9 +77,11 @@ function itemChosen(item) {
     dialogFunction(post,item);
 
     document.querySelector('.closeBtn').addEventListener('click',(el)=>{
+        // alert("close")
         let thisID = el.target.id;
         arrItems.forEach(it=>{
-            if (it.id==thisID) {
+            if (it._id==thisID) {
+                alert('found')
                 arrItems.splice(arrItems.indexOf(it), 1);
             }
         })
