@@ -73,7 +73,9 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
-//          routing
+
+
+//          routing 
 app.get('/', async (req, res) => { 
   const found=await Item.find({})
   // console.log( found);
@@ -123,7 +125,7 @@ app.get('/register', async (req, res) => {
           }
     })
     app.get("/select", async (req, res)=> {
-      const found=await Item.find({})
+       const found=await Item.find({})
       var label;
       let filteredObjects;
       const selections = {
@@ -146,12 +148,17 @@ app.get('/register', async (req, res) => {
       }
       if(label=="other"){
         filteredObjects = found;
-        console.log(filteredObjects);
       }else{
         filteredObjects = found.filter(object => selections[label].includes(object.category));
-        console.log(filteredObjects);
       }
     res.json(filteredObjects);  
+    });
+    app.get("/email", async (req, res) => {
+      const selected = req.query.email;
+      console.log("server side"+selected);
+      const user = await User.findById(selected);
+      console.log("server Side "+ user);
+      res.json(user);
     });
 
 

@@ -43,7 +43,6 @@ signinLink.onclick = function() {
 function sortItem(){  
   var selected = document.getElementById("mySelect");
   var selectedValue = selected.value;
-  console.log("sortItem() called");
   fetch(`/select?selected=${selectedValue}`, { method: 'GET' })
   .then(response => {
     if (!response.ok) {
@@ -58,29 +57,67 @@ function sortItem(){
     cardContainer.innerHTML = ''; // Clear existing cards
   
     data.forEach(item => {
-      var cardDiv = document.createElement('div');
-      cardDiv.className = 'col-lg-4 col-md-6';
-      cardDiv.onclick = function() { showMsg('Hello'); };
-      cardDiv.innerHTML = `
-        <div class="card citem">
-          <img src="https://static.nike.com/a/images/t_default/awjogtdnqxniqqk0wpgf/air-max-270-shoes-nnTrqDGR.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h3 class="card-title">${item.name}</h3>
-            <p class="card-text">${item.description}</p>
-            <a href="#" class="btn btn-outline-success">Buy Now</a>
-          </div>
-        </div>
-      `;
-      cardContainer.appendChild(cardDiv);
+         // Create a new card element
+         const id = item.owner;
+         const itemName = item.name;
+         var cardDiv = document.createElement('div');
+         cardDiv.className = 'col-lg-4 col-md-6';
+         cardDiv.innerHTML = `
+           <div class="card citem">
+             <img src="" class="card-img-top" alt="...">
+             <div class="card-body">
+               <h3 class="card-title">${item.name}</h3>
+               <p class="card-text">${item.description}</p>
+               <a href="#" class="btn btn-outline-success" id="buyBtn">Buy Now</a>
+             </div>
+           </div>
+         `;
+         cardContainer.appendChild(cardDiv);
+   
+         // Add an event listener to the Buy Now button
+         const buyBtn = cardDiv.querySelector('#buyBtn');
+         buyBtn.addEventListener('click', function(event) {
+           event.preventDefault();
+           sendEmail(id,itemName);
+         });
+       });
+     })
+}
+
+function sendEmail(id,itemName) {
+  fetch("/email?email=" + id, { method: "GET" })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      emailAddress = data.username;
+      console.log("Response data:", emailAddress);
+      // Construct mailto URL
+      const subject = "Regarding " + itemName;
+      const body = "Hi,\n\nI am interested in purchasing " + itemName ;
+      const mailtoUrl = "mailto:" + encodeURIComponent(emailAddress) +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+      const iframe = document.createElement("iframe");
+      iframe.style.display = "none";
+      iframe.setAttribute("src", mailtoUrl);
+      alert("Email sent successfully!");
+
+    })
+    .catch(error => {
+      console.error("Error:", error);
     });
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
 }
-function showMsg(item) {
-  alert(item);
-}
+
+// function showAlert(){
+// `  <div class="alert alert-primary" role="alert">
+//   This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+// </div>`
+// }
 // When the user clicks anywhere outside of the modals, close them
 window.onclick = function(event) {
   if (event.target == signinModal) {
