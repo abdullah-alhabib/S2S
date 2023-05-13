@@ -182,7 +182,7 @@
 
     <% for(var i=0; i< items.length;i++){ %>      
       <div class="col-lg-4 col-md-6"><div id="<%= items[i]._id %>" class="card citem" >
-        <img src="https://static.nike.com/a/images/t_default/awjogtdnqxniqqk0wpgf/air-max-270-shoes-nnTrqDGR.png" class="card-img-top" alt="...">
+        <img src="<%= items[i].itemPhoto.path.slice(item.itemPhoto.path.indexOf('\\')+1) %>" class="card-img-top" alt="...">
         <div class="card-body">
         <h3 class="card-title"><%= items[i].name %></h3>
           <p class="card-text"><%= items[i].description %></p>
