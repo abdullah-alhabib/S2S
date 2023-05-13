@@ -57,14 +57,16 @@ function sortItem(){
     cardContainer.innerHTML = ''; // Clear existing cards
   
     data.forEach(item => {
-         // Create a new card element
-         const id = item.owner;
+        // Create a new card element
+        const imagePath = item.itemPhoto.path.slice(item.itemPhoto.path.indexOf('\\')+1);
+        console.log(imagePath);
+        const id = item.owner;
          const itemName = item.name;
          var cardDiv = document.createElement('div');
          cardDiv.className = 'col-lg-4 col-md-6';
          cardDiv.innerHTML = `
            <div class="card citem">
-             <img src="" class="card-img-top" alt="...">
+             <img src="${imagePath}" class="card-img-top" alt="...">
              <div class="card-body">
                <h3 class="card-title">${item.name}</h3>
                <p class="card-text">${item.description}</p>
