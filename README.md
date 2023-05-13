@@ -1,2 +1,12 @@
-# How to run
-To run the website, simply open the HTML file called *index.html* in a web browser. You can do this by double-clicking on the HTML file or by right-clicking on it and selecting "Open with" and then choosing a web browser.
+## Getting Started
+
+1. Clone the repository or download the source code.
+2. Install dependencies by running the following command in the project directory:
+   ```
+   npm install
+   ```
+3. Start the application by running the following command:
+   ```
+   node app.js
+   ```
+4. The application will be running at `http://localhost:3000`.
