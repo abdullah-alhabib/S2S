@@ -1,6 +1,9 @@
 ## Getting Started
 
-1. Clone the repository or download the source code.
+1. Clone the repository or download the source code:
+   ```
+   git clone https://github.com/abdullah-alhabib/S2S.git
+   ```
 2. Install dependencies by running the following command in the project directory:
    ```
    npm install
