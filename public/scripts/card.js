@@ -7,15 +7,17 @@ function diaWork() {
 function closeAd(){
     document.querySelector('dialog').close();
 }
-
+   
 
 async function creatDialog(elemnt) {
     let id = elemnt.id;
     const data = await fetch(`/api/items/${id}`);
     const item = await data.json();
+    const imagePath = item.itemPhoto.path.slice(item.itemPhoto.path.indexOf('\\')+1);
     const dialog = document.querySelector('dialog');
-
-
+    var img = document.getElementById("image-dialog");
+    img.src=imagePath;
+    //item.itemPhoto.path.slice(item.itemPhoto.path.indexOf('\\')+1);
     let leftBar = document.querySelector('.leftInfo');
     leftBar.innerHTML = `
         name: ${item.name} <br>
