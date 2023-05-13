@@ -48,9 +48,6 @@ function itemChosen(item) {
           <!-- <img class="shopImage" src="https://img.freepik.com/free-vector/cartoon-style-cafe-front-shop-view_134830-697.jpg" alt="">
           <div class="headr">Your items</div> -->
           <img src="${imagePath}"  class="itemImg0"  alt="...">
-          <div class='thisItemDesc'>
-            Description: <br> ${selectITem.description}
-          </div>
           <div class="infoBar">
             <div class="leftInfo">
             name: ${selectITem.name} <br>
@@ -60,7 +57,7 @@ function itemChosen(item) {
             <div class="rightInfo">
             Catgroy: ${selectITem.category} <br>
             Date posted: 2023 <br>
-            seller : ${selectITem.owner}
+            University : KFUPM 
             </div>
         </div>
           <div class="btnBar">

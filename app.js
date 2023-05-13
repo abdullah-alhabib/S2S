@@ -64,7 +64,11 @@ const Item = mongoose.model('Item',itemSchema );
 
 // user data base 
 
-const userSchema= new mongoose.Schema({ email: String , password:String, items:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }] }); //items:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }]
+const userSchema= new mongoose.Schema({
+   email: String , 
+   password:String, 
+   items:[{ type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Item' }] }); //items:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }]
 userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model('User',userSchema );
 passport.use(User.createStrategy());

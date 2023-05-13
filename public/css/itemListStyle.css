@@ -183,8 +183,8 @@ body{margin: 0;}
 }
 
 .thisItemImg{
-    margin-top: 2rem;
-    width: 30%;
+    /* margin-top: 1rem; */
+    width: auto;
     height: 100%;
     top: 0;
     background-size: contain;
