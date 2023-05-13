@@ -4,7 +4,6 @@ S2S stands for student to student which is a website that gives students inside 
 
 ## Getting Started
 
-<<<<<<< HEAD
 To get started with this project, you will need to have Node.js installed on your computer. Once you have Node.js installed, you can clone the project repository to your local machine using the following command:
 
 ```
