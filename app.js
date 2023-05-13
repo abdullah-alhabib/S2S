@@ -51,6 +51,7 @@ const itemSchema= new mongoose.Schema({
   price: Number, 
   building: String, 
   description: String, 
+  ownerName:String,
   itemPhoto: {
     data: Buffer,
     contentType: String,
@@ -237,6 +238,7 @@ app.get('/register', async (req, res) => {
 
       app.post('/upload', uploadImage.single('itemPhoto'), async (req, res) => {
         const itemId= new mongoose.Types.ObjectId();
+        const foundUser=await User.findOne({_id:req.user.id})
         const newItem = new Item({
           _id:itemId,
           category: req.body.itemCategory,
@@ -249,10 +251,11 @@ app.get('/register', async (req, res) => {
             contentType: req.file.mimetype,
             path: req.file.path
           },
-          owner:req.user.id
+          owner:req.user.id,
+          ownerName:foundUser.email
         });   
         newItem.save();
-        const foundUser=await User.findOne({_id:req.user.id})
+        
         foundUser.items.push(itemId);
         foundUser.save();
 
