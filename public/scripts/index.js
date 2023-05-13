@@ -69,7 +69,7 @@ function sortItem(){
              <img src="${imagePath}" class="card-img-top" alt="...">
              <div class="card-body">
                <h3 class="card-title">${item.name}</h3>
-               <p class="card-text">${item.description}</p>
+               <p class="card-text">${item.price} SR </p>
                <a href="#" class="btn btn-outline-success" id="buyBtn">Buy Now</a>
              </div>
            </div>
@@ -85,6 +85,7 @@ function sortItem(){
        });
      })
 }
+
 
 function sendEmail(id,itemName) {
   fetch("/email?email=" + id, { method: "GET" })

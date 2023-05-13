@@ -150,8 +150,8 @@
   <dialog>
     <button onclick="closeAd();" type="button" class="btn btn-danger closeMark">X</button>
     <div class="diaBody">
-      <div class="thisItemImg" style="background-image: url('https://static.nike.com/a/images/t_default/awjogtdnqxniqqk0wpgf/air-max-270-shoes-nnTrqDGR.png');"></div>
-      <div class="infoBar">
+      <img src="" width="200px" height="auto" id="image-dialog" class="itemImg0"  alt="...">
+      <div class="infoBar"> 
         <div class="leftInfo">
           name: shoes <br>
           price: 300 SR <br>
@@ -182,11 +182,11 @@
 
     <% for(var i=0; i< items.length;i++){ %>      
       <div class="col-lg-4 col-md-6"><div id="<%= items[i]._id %>" class="card citem" >
-        <img src="<%= items[i].itemPhoto.path.slice(item.itemPhoto.path.indexOf('\\')+1) %>" class="card-img-top" alt="...">
+        <img src="<%= items[i].itemPhoto.path.slice(items[i].itemPhoto.path.indexOf('\\')+1) %>" class="card-img-top" alt="...">
         <div class="card-body">
         <h3 class="card-title"><%= items[i].name %></h3>
-          <p class="card-text"><%= items[i].description %></p>
-          <a href="/" class="btn btn-outline-success">Buy Now</a>
+          <p class="card-text"><%= items[i].price %> SR</p>
+          <a href="/" class="btn btn-outline-success" id="buyBtn">Buy Now</a>
         </div>
       </div>
       </div>

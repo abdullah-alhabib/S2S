@@ -41,11 +41,13 @@ function itemChosen(item) {
         }
         index++;
     }
+    
+    const imagePath = selectITem.itemPhoto.path.slice(selectITem.itemPhoto.path.indexOf('\\')+1);
     let post  = `
     <div class="rightBar">
           <!-- <img class="shopImage" src="https://img.freepik.com/free-vector/cartoon-style-cafe-front-shop-view_134830-697.jpg" alt="">
           <div class="headr">Your items</div> -->
-          <div class="thisItemImg" style="background-image: url('https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png');"></div>
+          <img src="${imagePath}"  class="itemImg0"  alt="...">
           <div class='thisItemDesc'>
             Description: <br> ${selectITem.description}
           </div>
@@ -53,7 +55,7 @@ function itemChosen(item) {
             <div class="leftInfo">
             name: ${selectITem.name} <br>
             price: ${selectITem.price} SR <br>
-            bulding: ${selectITem.bulding}
+            bulding: ${selectITem.building}
             </div>
             <div class="rightInfo">
             Catgroy: ${selectITem.category} <br>
@@ -61,11 +63,6 @@ function itemChosen(item) {
             seller : ${selectITem.owner}
             </div>
         </div>
-          <div class="contactInfo">
-            people who wants this item: <br>
-            badr@hotmail.com <br>
-            salman@gmail.com 
-          </div>
           <div class="btnBar">
             <button type="button" id='${item.id}' class="btn btn-primary editBtn">Edit</button>
             <button type="button" id='${item.id}' class="btn btn-danger closeBtn">Close</button>
@@ -189,10 +186,12 @@ function addItem() {
     arrItems.push(object);
 }
 function createItem(item) {
+    const imagePath = item.itemPhoto.path.slice(item.itemPhoto.path.indexOf('\\')+1);
+    console.log(imagePath);
 
     let post = `
     <div id='${item._id}' class="item0">
-        <div style="background-image: url('https://www.mintmobile.com/wp-content/uploads/2022/09/iPhone_14_Plus_ProductRED_PDP_Image_Position-1A__en-US-min-1.png');" class="itemImg0"></div>
+        <img src="${imagePath}"  class="itemImg0"  alt="...">
         <div class="itemRightBar">
             <div class="itemCategory">${item.category}</div>
             <div class="itemName">${item.name}</div>
