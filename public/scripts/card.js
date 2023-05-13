@@ -7,7 +7,7 @@ function diaWork() {
 function closeAd(){
     document.querySelector('dialog').close();
 }
-
+   
 
 async function creatDialog(elemnt) {
     let id = elemnt.id;
